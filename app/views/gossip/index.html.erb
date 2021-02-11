@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<%= csrf_meta_tag %>
+    <head>
+        <title>The Gossip Project</title>
+    </head>
+    <body>
+        <div class="card text-center">
+    
+            <h1>Bienvenue <%= Author.find_by(id: session[:author_id]).first_name %> !</h1>
+        </div>
+        
+        <%if flash[:notice]%>
+            <div class="alert alert-success" role="alert">
+                <p id="notice"><%= notice %></p>
+            </div>
+        <%end%>
+
+        
+
+         <p><a href="<%= new_gossip_path %>" class="btn btn-success">Créer un Gossip</a></p>
+
+        <p>Voici la liste des gossips : </p>
+
+
+        <% Gossip.all.each do |gossip| %>
+            
+            
+            
+            <div class="card text-center">
+            <div class="card-header">
+                
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%=gossip.title%></h5>
+                <p class="card-text">by <%= Author.find(gossip.author_id).first_name %><br></p>
+                <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir Gossip</a>
+            </div>
+           
+            </div>       
+        <% end %>
+    
+  </body>
+</html>
+
+   
+
+   
+    
+
+</html>

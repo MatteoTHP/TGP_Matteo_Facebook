@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <body>
+
+        <h3>Voici l'auteur numero: <%= "#{params[:id]}" %> </h3>
+        <p> </p>
+        <p></p>
+        <p> </p>
+        <p> </p>
+
+        <div class="card text-white bg-dark mb-3" style="max-width: 25rem;">
+        <div class="card-header"><%=  @this_author.first_name%> <%=  @this_author.last_name%></div>
+        <div class="card-body">
+            <h5 class="card-title">E-mail :<%= @this_author.email %></h5>
+            <p class="card-text">Age :<%= @this_author.age %> ans</p>
+            <p class="card-text">Description :<%= @this_author.description %>  </p>
+            <p class="card-text">Ville :<%= link_to "#{City.find(@this_author.city_id).name}", city_path(@this_author.city_id)%></p>
+        </div>
+        </div>
+    </body>
+</html>

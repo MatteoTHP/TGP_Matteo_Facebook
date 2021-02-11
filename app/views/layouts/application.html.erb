@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>TheGossipProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    
+  </head>
+
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href=" / ">Acceuil</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="<%= team_path %>">Team</a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= contact_path %>">Contact</a>
+         </li>
+          
+        </ul>
+         
+          
+            <a class="nav-link" href="<%= new_author_path %>">S'inscrire</a>
+            <a class="nav-link" href="<%= new_session_path %>"> Log-in</a>
+            <%= link_to "Se déconnecter", root_path, method: :delete %>
+      </div>
+    </nav>
+    </header>
+
+
+    <%= yield %>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+
+    <body>
+
+        <h3>Voici le gossip numero: <%= "#{params[:id]}" %> </h3>
+
+       
+        <%if flash[:notice]%>
+                <div class="alert alert-success" role="alert">
+                    <p id="notice"><%= notice %></p>
+                </div>
+        <%end%>
+        
+        
+
+        <p>crée le :<%= Gossip.find(params[:id]).date %> </p>  
+                <div class="card">
+        <div class="card-header">
+           <%= Gossip.find(params[:id]).title %>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+            <p><%= Gossip.find(params[:id]).content %></p>
+            <footer class="blockquote-footer">Crée par :  <cite title="Source Title"><%= link_to "#{@author_name}", "/author/#{@author_id}"%></cite> de la ville de <%= link_to "#{@author_city}", city_path(@this_gossip.author.city_id)%><%=%></footer>
+            </blockquote>
+        </div>
+    
+
+         <div>
+             <a href="<%= edit_gossip_path(params[:id]) %>" class="btn btn-primary" >Edit</a>
+            <%= button_to "Delete", gossip_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+        </div>
+
+
+
+      
+
+        <p>ecris un commentaire: </p>
+       
+       
+       
+        
+                
+        
+        <p>Commentaires: </p>
+
+       
+
+    </body>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<%= csrf_meta_tag %>
+    <head>
+        <title>City</title>
+    </head>
+    <body>
+        <div class="card text-center">
+    
+            <h1><%= @this_city.name %></h1>
+        </div>
+        
+       
+
+        
+
+        
+
+        <p>Voici la liste des gossips de la ville: </p>
+
+
+        <% Gossip.all.each do |gossip| %>
+            
+            <% if City.find(gossip.author.city_id).name == @this_city.name %>
+            
+                <div class="card text-center">
+                <div class="card-header">
+                    
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%=gossip.title%></h5>
+                    <p class="card-text">by <%= Author.find(gossip.author_id).first_name %><br></p>
+                    <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir Gossip</a>
+                </div>
+
+           <% end %>
+            </div>       
+        <% end %>
+    
+  </body>
+</html>
+
+   
+
+   
+    
+
+</html>
